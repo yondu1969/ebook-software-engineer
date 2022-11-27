@@ -65,16 +65,6 @@ const Form = () => {
     <Box>
       <Box marginBottom={4}>
         <Typography
-          sx={{
-            textTransform: 'uppercase',
-            fontWeight: 'medium',
-          }}
-          gutterBottom
-          color={'text.secondary'}
-        >
-          Signup
-        </Typography>
-        <Typography
           variant="h4"
           sx={{
             fontWeight: 700,
