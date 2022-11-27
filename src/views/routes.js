@@ -3,6 +3,8 @@ import React from 'react';
 import {
   Elearning as ElearningView,
   SigninSimple as SigninSimpleView,
+  SignupSimple as SignupSimpleView,
+  CompanyTerms as CompanyTermsView,
   NotFound as NotFoundView,
   NotFoundCover as NotFoundCoverView,
 } from 'views';
@@ -15,6 +17,14 @@ const routes = [
   {
     path: '/signin-simple',
     renderer: (params = {}) => <SigninSimpleView {...params} />,
+  },
+  {
+    path: '/signup-simple',
+    renderer: (params = {}) => <SignupSimpleView {...params} />,
+  },
+  {
+    path: '/company-terms',
+    renderer: (params = {}) => <CompanyTermsView {...params} />,
   },
   {
     path: '/not-found',

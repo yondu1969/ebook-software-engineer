@@ -47,10 +47,20 @@ const Topbar = ({ onSidebarOpen, pages, colorInvert = false }) => {
       <Box sx={{ display: { xs: 'none', md: 'flex' } }} alignItems={'center'}>
         <Box marginLeft={4}>
           <Button
+            variant="outlined"
+            color="primary"
+            component="a"
+            href="/signin-simple"
+            size="large"
+          >
+            Login
+          </Button>
+        </Box>
+        <Box marginLeft={2}>
+          <Button
             variant="contained"
             color="primary"
             component="a"
-            target="blank"
             href="https://mui.com/store/items/the-front-landing-page/"
             size="large"
           >

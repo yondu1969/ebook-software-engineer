@@ -62,7 +62,92 @@ const Form = () => {
           Login to manage your account.
         </Typography>
       </Box>
+      <form onSubmit={formik.handleSubmit}>
+        <Grid container spacing={4}>
+          <Grid item xs={12}>
+            <Typography variant={'subtitle2'} sx={{ marginBottom: 2 }}>
+              Enter your email
+            </Typography>
+            <TextField
+              label="Email *"
+              variant="outlined"
+              name={'email'}
+              fullWidth
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              error={formik.touched.email && Boolean(formik.errors.email)}
+              helperText={formik.touched.email && formik.errors.email}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Box
+              display="flex"
+              flexDirection={{ xs: 'column', sm: 'row' }}
+              alignItems={{ xs: 'stretched', sm: 'center' }}
+              justifyContent={'space-between'}
+              width={1}
+              marginBottom={2}
+            >
+              <Box marginBottom={{ xs: 1, sm: 0 }}>
+                <Typography variant={'subtitle2'}>
+                  Enter your password
+                </Typography>
+              </Box>
+              <Typography variant={'subtitle2'}>
+                <Link
+                  component={'a'}
+                  color={'primary'}
+                  href={'/password-reset-simple'}
+                  underline={'none'}
+                >
+                  Forgot your password?
+                </Link>
+              </Typography>
+            </Box>
+            <TextField
+              label="Password *"
+              variant="outlined"
+              name={'password'}
+              type={'password'}
+              fullWidth
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              error={formik.touched.password && Boolean(formik.errors.password)}
+              helperText={formik.touched.password && formik.errors.password}
+            />
+          </Grid>
+          <Grid item container xs={12}>
+            <Box
+              display="flex"
+              flexDirection={{ xs: 'column', sm: 'row' }}
+              alignItems={{ xs: 'stretched', sm: 'center' }}
+              justifyContent={'space-between'}
+              width={1}
+              maxWidth={600}
+              margin={'0 auto'}
+            >
+              <Box marginBottom={{ xs: 1, sm: 0 }}>
+                <Typography variant={'subtitle2'}>
+                  Don't have an account yet?{' '}
+                  <Link
+                    component={'a'}
+                    color={'primary'}
+                    href={'/signup-simple'}
+                    underline={'none'}
+                  >
+                    Sign up here.
+                  </Link>
+                </Typography>
+              </Box>
+              <Button size={'large'} variant={'contained'} type={'submit'}>
+                Login
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+      </form>
       <Box marginBottom={4}>
+        <hr/>
         <Button size={'large'} variant={'contained'} onClick={signInWithGoogle}>
           Login with Google
         </Button>
