@@ -1,22 +1,24 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import Routes from './Routes';
-import Page from './components/Page';
+// routes
+import Router from './routes';
+// theme
+import ThemeProvider from './theme';
+// components
+import SnackbarProvider from './components/snackbar';
+import { ThemeSettings } from './components/settings';
+import { MotionLazyContainer } from './components/animate';
 
-import 'react-lazy-load-image-component/src/effects/blur.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import 'react-image-lightbox/style.css';
-import 'aos/dist/aos.css';
+// ----------------------------------------------------------------------
 
-const App = () => {
+export default function App() {
   return (
-    <Page>
-      <BrowserRouter>
-        <Routes />
-      </BrowserRouter>
-    </Page>
+    <MotionLazyContainer>
+      <ThemeProvider>
+        <ThemeSettings>
+          <SnackbarProvider>
+            <Router />
+          </SnackbarProvider>
+        </ThemeSettings>
+      </ThemeProvider>
+    </MotionLazyContainer>
   );
-};
-
-export default App;
+}

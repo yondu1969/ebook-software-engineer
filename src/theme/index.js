@@ -1,63 +1,50 @@
-import { responsiveFontSizes } from '@mui/material';
-import { createTheme } from '@mui/material/styles';
+import PropTypes from 'prop-types';
+import { useMemo } from 'react';
+// @mui
+import { CssBaseline } from '@mui/material';
+import { createTheme, StyledEngineProvider, ThemeProvider as MUIThemeProvider } from '@mui/material/styles';
+// components
+import { useSettingsContext } from '../components/settings';
+//
+import palette from './palette';
+import typography from './typography';
 import shadows from './shadows';
-import { light, dark } from './palette';
+import customShadows from './customShadows';
+import componentsOverride from './overrides';
+import GlobalStyles from './globalStyles';
 
-const getTheme = (mode, themeToggler) =>
-  responsiveFontSizes(
-    createTheme({
-      palette: mode === 'light' ? light : dark,
-      shadows: shadows(mode),
-      typography: {
-        fontFamily: '"Inter", sans-serif',
-        button: {
-          textTransform: 'none',
-          fontWeight: 'medium',
-        },
-      },
-      zIndex: {
-        appBar: 1200,
-        drawer: 1300,
-      },
-      components: {
-        MuiButton: {
-          styleOverrides: {
-            root: {
-              fontWeight: 400,
-              borderRadius: 5,
-              paddingTop: 10,
-              paddingBottom: 10,
-            },
-            containedSecondary: mode === 'light' ? { color: 'white' } : {},
-          },
-        },
-        MuiInputBase: {
-          styleOverrides: {
-            root: {
-              borderRadius: 5,
-            },
-          },
-        },
-        MuiOutlinedInput: {
-          styleOverrides: {
-            root: {
-              borderRadius: 5,
-            },
-            input: {
-              borderRadius: 5,
-            },
-          },
-        },
-        MuiCard: {
-          styleOverrides: {
-            root: {
-              borderRadius: 8,
-            },
-          },
-        },
-      },
-      themeToggler,
+// ----------------------------------------------------------------------
+
+ThemeProvider.propTypes = {
+  children: PropTypes.node,
+};
+
+export default function ThemeProvider({ children }) {
+  const { themeMode, themeDirection } = useSettingsContext();
+
+  const themeOptions = useMemo(
+    () => ({
+      palette: palette(themeMode),
+      typography,
+      shape: { borderRadius: 8 },
+      direction: themeDirection,
+      shadows: shadows(themeMode),
+      customShadows: customShadows(themeMode),
     }),
+    [themeDirection, themeMode]
   );
 
-export default getTheme;
+  const theme = createTheme(themeOptions);
+
+  theme.components = componentsOverride(theme);
+
+  return (
+    <StyledEngineProvider injectFirst>
+      <MUIThemeProvider theme={theme}>
+        <CssBaseline />
+        <GlobalStyles />
+        {children}
+      </MUIThemeProvider>
+    </StyledEngineProvider>
+  );
+}
