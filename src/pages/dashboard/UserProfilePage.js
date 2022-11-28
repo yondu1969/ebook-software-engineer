@@ -7,7 +7,7 @@ import { PATH_DASHBOARD } from '../../routes/paths';
 // auth
 import { useAuthContext } from '../../auth/useAuthContext';
 // _mock_
-import { _userAbout, _userFeeds, _userFriends, _userGallery, _userFollowers } from '../../_mock/arrays';
+import { _userAbout, _userFeeds, _userFriends, _userFollowers } from '../../_mock/arrays';
 // components
 import Iconify from '../../components/iconify';
 import CustomBreadcrumbs from '../../components/custom-breadcrumbs';

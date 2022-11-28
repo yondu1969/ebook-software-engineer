@@ -1,8 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 // @mui
 import { Container, Box } from '@mui/material';
-// _mock
-import { _mapContact } from '../_mock/arrays';
 // sections
 import { ContactHero, ContactForm } from '../sections/contact';
 

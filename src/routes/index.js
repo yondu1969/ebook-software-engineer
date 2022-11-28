@@ -7,8 +7,6 @@ import MainLayout from '../layouts/main';
 import SimpleLayout from '../layouts/simple';
 import CompactLayout from '../layouts/compact';
 import DashboardLayout from '../layouts/dashboard';
-// config
-import { PATH_AFTER_LOGIN } from '../config';
 //
 import {
   // Auth
