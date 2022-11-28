@@ -49,17 +49,3 @@ export const PATH_DASHBOARD = {
     demoEdit: path(ROOTS_DASHBOARD, `/user/reece-chung/edit`),
   },
 };
-
-export const PATH_DOCS = {
-  root: 'https://docs.minimals.cc',
-  changelog: 'https://docs.minimals.cc/changelog',
-};
-
-export const PATH_ZONE_ON_STORE = 'https://mui.com/store/items/zone-landing-page/';
-
-export const PATH_MINIMAL_ON_STORE = 'https://mui.com/store/items/minimal-dashboard/';
-
-export const PATH_FREE_VERSION = 'https://mui.com/store/items/minimal-dashboard-free/';
-
-export const PATH_FIGMA_PREVIEW =
-  'https://www.figma.com/file/OBEorYicjdbIT6P1YQTTK7/%5BPreview%5D-Minimal-Web.15.10.22?node-id=0%3A1';

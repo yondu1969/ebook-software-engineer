@@ -8,11 +8,7 @@ import {
   HomeHero,
   HomeMinimal,
   HomeDarkMode,
-  HomeLookingFor,
-  HomeForDesigner,
   HomeColorPresets,
-  HomePricingPlans,
-  HomeAdvertisement,
   HomeCleanInterfaces,
   HomeHugePackElements,
 } from '../sections/home';
@@ -67,19 +63,12 @@ export default function HomePage() {
 
         <HomeHugePackElements />
 
-        <HomeForDesigner />
-
         <HomeDarkMode />
 
         <HomeColorPresets />
 
         <HomeCleanInterfaces />
 
-        <HomePricingPlans />
-
-        <HomeLookingFor />
-
-        <HomeAdvertisement />
       </Box>
     </>
   );
