@@ -9,9 +9,14 @@ import Iconify from '../../../components/iconify';
 
 const navConfig = [
   {
-    title: 'Home',
-    icon: <Iconify icon="eva:home-fill" />,
-    path: '/',
+    title: 'Login',
+    icon: <Iconify icon="eva:log-in-fill" />,
+    path:  PATH_AFTER_LOGIN,
+  },
+  {
+    title: 'Buy Now',
+    icon: <Iconify icon="eva:book-open-fill" />,
+    path:  PATH_PAGE.payment,
   },
   {
     title: 'Pages',

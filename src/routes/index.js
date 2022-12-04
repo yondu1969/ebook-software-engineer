@@ -38,11 +38,26 @@ import {
   ComingSoonPage,
   MaintenancePage,
 } from './elements';
-
+// config
+import { PATH_AFTER_LOGIN } from '../config';
 // ----------------------------------------------------------------------
 
 export default function Router() {
   return useRoutes([
+    {
+      path: '/',
+      children: [
+        { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
+        {
+          path: 'login',
+          element: (
+            <GuestGuard>
+              <LoginPage />
+            </GuestGuard>
+          ),
+        },
+      ],
+    },
     // Auth
     {
       path: 'auth',

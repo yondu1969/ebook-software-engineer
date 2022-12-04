@@ -24,9 +24,9 @@ import { store, persistor } from './redux/store';
 import { SettingsProvider } from './components/settings';
 import ScrollToTop from './components/scroll-to-top';
 
-import { AuthProvider } from './auth/JwtContext';
+// import { AuthProvider } from './auth/JwtContext';
 // import { AuthProvider } from './auth/Auth0Context';
-// import { AuthProvider } from './auth/FirebaseContext';
+import { AuthProvider } from './auth/FirebaseContext';
 // import { AuthProvider } from './auth/AwsCognitoContext';
 
 //
