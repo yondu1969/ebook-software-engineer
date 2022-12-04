@@ -46,3 +46,5 @@ export const PricingPage = Loadable(lazy(() => import('../pages/PricingPage')));
 export const PaymentPage = Loadable(lazy(() => import('../pages/PaymentPage')));
 export const ComingSoonPage = Loadable(lazy(() => import('../pages/ComingSoonPage')));
 export const MaintenancePage = Loadable(lazy(() => import('../pages/MaintenancePage')));
+
+export const EBookSoftwareEngineerPage = Loadable(lazy(() => import('../pages/ebook/EBookSoftwareEngineerPage')));

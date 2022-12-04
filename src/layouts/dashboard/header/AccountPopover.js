@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { alpha } from '@mui/material/styles';
 import { Box, Divider, Typography, Stack, MenuItem } from '@mui/material';
 // routes
-import { PATH_DASHBOARD, PATH_AUTH } from '../../../routes/paths';
+import { PATH_DASHBOARD, PATH_AUTH, PATH_PAGE } from '../../../routes/paths';
 // auth
 import { useAuthContext } from '../../../auth/useAuthContext';
 // components
@@ -18,12 +18,12 @@ import { IconButtonAnimate } from '../../../components/animate';
 const OPTIONS = [
   {
     label: 'Home',
-    linkTo: '/',
+    linkTo: PATH_PAGE.ebook,
   },
-  {
-    label: 'Profile',
-    linkTo: PATH_DASHBOARD.user.profile,
-  },
+  // {
+  //   label: 'Profile',
+  //   linkTo: PATH_DASHBOARD.user.profile,
+  // },
   {
     label: 'Settings',
     linkTo: PATH_DASHBOARD.user.account,
@@ -52,7 +52,8 @@ export default function AccountPopover() {
   const handleLogout = async () => {
     try {
       logout();
-      navigate(PATH_AUTH.login, { replace: true });
+      // navigate(PATH_AUTH.login, { replace: true });
+      navigate(PATH_PAGE.ebook, { replace: true });
       handleClosePopover();
     } catch (error) {
       console.error(error);

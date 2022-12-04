@@ -81,7 +81,7 @@ export default function AccountGeneral() {
       <Grid container spacing={3}>
         <Grid item xs={12} md={4}>
           <Card sx={{ py: 10, px: 3, textAlign: 'center' }}>
-            <RHFUploadAvatar
+            {/* <RHFUploadAvatar
               name="photoURL"
               maxSize={3145728}
               onDrop={handleDrop}
@@ -100,9 +100,9 @@ export default function AccountGeneral() {
                   <br /> max size of {fData(3145728)}
                 </Typography>
               }
-            />
+            /> */}
 
-            <RHFSwitch name="isPublic" labelPlacement="start" label="Public Profile" sx={{ mt: 5 }} />
+            {/* <RHFSwitch name="isPublic" labelPlacement="start" label="Public Profile" sx={{ mt: 5 }} /> */}
           </Card>
         </Grid>
 
@@ -120,7 +120,7 @@ export default function AccountGeneral() {
               <RHFTextField name="displayName" label="Name" />
 
               <RHFTextField name="email" label="Email Address" />
-
+{/* 
               <RHFTextField name="phoneNumber" label="Phone Number" />
 
               <RHFTextField name="address" label="Address" />
@@ -139,14 +139,15 @@ export default function AccountGeneral() {
               <RHFTextField name="city" label="City" />
 
               <RHFTextField name="zipCode" label="Zip/Code" />
+               */}
             </Box>
 
             <Stack spacing={3} alignItems="flex-end" sx={{ mt: 3 }}>
-              <RHFTextField name="about" multiline rows={4} label="About" />
+              {/* <RHFTextField name="about" multiline rows={4} label="About" /> */}
 
-              <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
+              {/* <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
                 Save Changes
-              </LoadingButton>
+              </LoadingButton> */}
             </Stack>
           </Card>
         </Grid>

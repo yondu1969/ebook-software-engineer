@@ -37,6 +37,8 @@ import {
   PaymentPage,
   ComingSoonPage,
   MaintenancePage,
+  //
+  EBookSoftwareEngineerPage
 } from './elements';
 // config
 import { PATH_AFTER_LOGIN } from '../config';
@@ -103,12 +105,12 @@ export default function Router() {
         {
           path: 'user',
           children: [
-            { element: <Navigate to="/dashboard/user/profile" replace />, index: true },
-            { path: 'profile', element: <UserProfilePage /> },
-            { path: 'cards', element: <UserCardsPage /> },
-            { path: 'list', element: <UserListPage /> },
-            { path: 'new', element: <UserCreatePage /> },
-            { path: ':name/edit', element: <UserEditPage /> },
+            { element: <Navigate to="/dashboard/user/account" replace />, index: true },
+            // { path: 'profile', element: <UserProfilePage /> },
+            // { path: 'cards', element: <UserCardsPage /> },
+            // { path: 'list', element: <UserListPage /> },
+            // { path: 'new', element: <UserCreatePage /> },
+            // { path: ':name/edit', element: <UserEditPage /> },
             { path: 'account', element: <UserAccountPage /> },
           ],
         },
@@ -125,6 +127,7 @@ export default function Router() {
         { path: 'about-us', element: <AboutPage /> },
         { path: 'contact-us', element: <Contact /> },
         { path: 'faqs', element: <FaqsPage /> },
+        { path: 'ebook-software-engineer', element: <EBookSoftwareEngineerPage /> },
       ],
     },
     {

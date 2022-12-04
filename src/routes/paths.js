@@ -32,6 +32,8 @@ export const PATH_PAGE = {
   page404: '/404',
   page500: '/500',
   components: '/components',
+
+  ebook: '/ebook-software-engineer',
 };
 
 export const PATH_DASHBOARD = {
