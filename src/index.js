@@ -18,6 +18,10 @@ import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
+
+// stripe
+import { Elements } from "@stripe/react-stripe-js";
+
 // redux
 import { store, persistor } from './redux/store';
 // components
@@ -34,6 +38,8 @@ import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
 
+import { stripePromise } from "./utils/stripe/stripe.utils";
+
 // ----------------------------------------------------------------------
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -45,8 +51,10 @@ root.render(
         <PersistGate loading={null} persistor={persistor}>
           <SettingsProvider>
             <BrowserRouter>
-              <ScrollToTop />
-              <App />
+              <Elements stripe={stripePromise}>
+                <ScrollToTop />
+                <App />
+              </Elements>
             </BrowserRouter>
           </SettingsProvider>
         </PersistGate>

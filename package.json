@@ -5,14 +5,15 @@
   "description": "eBook Software Engineer",
   "private": true,
   "scripts": {
-    "start": "PORT=3001 react-app-rewired start",
+    "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .js,.jsx ./src",
     "clear-all": "rm -rf build node_modules",
     "re-start": "rm -rf build node_modules && yarn install && yarn start",
-    "re-build": "rm -rf build node_modules && yarn install && yarn build"
+    "re-build": "rm -rf build node_modules && yarn install && yarn build",
+    "start-netlify": "netlify dev"
   },
   "eslintConfig": {
     "extends": [
@@ -46,11 +47,15 @@
     "@mui/lab": "^5.0.0-alpha.103",
     "@mui/material": "^5.10.9",
     "@reduxjs/toolkit": "^1.8.6",
+    "@stripe/react-stripe-js": "^1.7.0",
+    "@stripe/stripe-js": "^1.25.0",
     "axios": "^1.1.2",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "change-case": "^4.1.2",
     "date-fns": "^2.29.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
     "firebase": "^9.12.1",
     "framer-motion": "^7.5.3",
     "highlight.js": "^11.6.0",
@@ -82,6 +87,7 @@
     "simplebar-react": "^2.4.3",
     "slick-carousel": "^1.8.1",
     "stream-browserify": "^3.0.0",
+    "stripe": "^8.210.0",
     "stylis": "^4.1.2",
     "stylis-plugin-rtl": "^2.1.1",
     "util": "^0.12.4",
