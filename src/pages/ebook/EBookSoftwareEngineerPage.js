@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { Divider } from '@mui/material';
 // sections
 import { AboutHero, AboutWhat, AboutTeam, AboutVision, AboutTestimonials } from '../../sections/about';
-
+import { ContactUsForm, BuyNowForm } from './sections';
 // ----------------------------------------------------------------------
 
 export default function EBookSoftwareEngineerPage() {
@@ -14,6 +14,10 @@ export default function EBookSoftwareEngineerPage() {
       </Helmet>
 
       <AboutHero />
+
+      <BuyNowForm />
+
+      <ContactUsForm />
 
       <AboutWhat />
 

@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 
 import { LoadingButton } from '@mui/lab';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import { CardElement, PaymentElement, useStripe, useElements } from '@stripe/react-stripe-js';
 
 // hooks
 import useResponsive from '../hooks/useResponsive';
@@ -30,6 +30,23 @@ export default function PaymentPage() {
   const stripe = useStripe();
   const elements = useElements();
   const amount = "2.99"
+  const CARD_ELEMENT_OPTIONS = {
+    style: {
+      base: {
+        color: "#32325d",
+        fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+        fontSmoothing: "antialiased",
+        fontSize: "20px",
+        "::placeholder": {
+          color: "#aab7c4",
+        },
+      },
+      invalid: {
+        color: "#fa755a",
+        iconColor: "#fa755a",
+      },
+    },
+  };
 
   const handleBuyNow = async (e) => {
     const response = await fetch('/.netlify/functions/create-payment-intent', {
@@ -86,29 +103,30 @@ export default function PaymentPage() {
             <Box
               gap={5}
               display="grid"
-              gridTemplateColumns={{
-                xs: 'repeat(1, 1fr)',
-                md: 'repeat(2, 1fr)',
-              }}
+              // gridTemplateColumns={{
+              //   xs: 'repeat(1, 1fr)',
+              //   md: 'repeat(2, 1fr)',
+              // }}
               sx={{
                 p: { md: 5 },
                 borderRadius: 2,
                 border: (theme) => ({
                   md: `dashed 1px ${theme.palette.divider}`,
                 }),
+                
               }}
             >
-              <PaymentBillingAddress />
+              {/* <PaymentBillingAddress /> */}
 
               {/* <PaymentMethods /> */}
               <Stack spacing={3}>
                 <Typography variant="h6">Payment Method</Typography>
 
-                <CardElement />
-
                 <TextField fullWidth label="Name on card" />
 
-                <TextField fullWidth label="Card number" />
+                <CardElement options={CARD_ELEMENT_OPTIONS} />
+
+                {/* <TextField fullWidth label="Card number" />
 
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
                   <TextField label="MM/YY" />
@@ -125,7 +143,7 @@ export default function PaymentPage() {
                       ),
                     }}
                   />
-                </Stack>
+                </Stack> */}
 
                 <LoadingButton onClick={handleBuyNow} fullWidth size="large" type="submit" variant="contained" sx={{ mt: 5, mb: 3 }}>
                   Buy Now

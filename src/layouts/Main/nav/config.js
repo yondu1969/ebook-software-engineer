@@ -13,6 +13,11 @@ const navConfig = [
     icon: <Iconify icon="eva:log-in-fill" />,
     path:  PATH_AFTER_LOGIN,
   },
+  {
+    title: 'BUY NOW',
+    icon: <Iconify icon="eva:log-in-fill" />,
+    path:  PATH_PAGE.payment,
+  },
   // {
   //   title: 'Pages',
   //   path: '/pages',
