@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, doc, getDoc, setDoc } from 'firebase/firestore';
+import { v4 as uuidv4 } from 'uuid';
 
 import * as Yup from 'yup';
 // form
@@ -15,6 +16,7 @@ import FormProvider, {
   RHFTextField,
 } from '../../../components/hook-form';
 import { MotionViewport } from '../../../components/animate';
+import { FIREBASE_API } from '../../../config';
 
 // ----------------------------------------------------------------------
 
@@ -56,8 +58,16 @@ export default function ContactUsForm() {
 
   const onSubmit = async (data) => {
     try {
-      alert(data);
-      await new Promise((resolve) => setTimeout(resolve, 500));
+      const firebaseApp = initializeApp(FIREBASE_API);
+      const DB = getFirestore(firebaseApp);
+      const questionsRef = doc(collection(DB, 'questions'), uuidv4());
+
+      await setDoc(questionsRef, {
+        fullName: data.fullName,
+        email: data.email,
+        message: data.message,
+      });
+
       reset();
     } catch (error) {
       alert(error)
