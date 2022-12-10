@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet-async';
 // @mui
 import { Divider } from '@mui/material';
 // sections
-import { AboutHero, AboutWhat, AboutTeam, AboutVision, AboutTestimonials } from '../../sections/about';
-import { ContactUsForm, BuyNowForm } from './sections';
+import { About, What, MyGoal, AboutMe, ContactUsForm, BuyNowForm } from './sections';
 // ----------------------------------------------------------------------
 
 export default function EBookSoftwareEngineerPage() {
@@ -13,21 +12,21 @@ export default function EBookSoftwareEngineerPage() {
         <title> About us | Minimal UI</title>
       </Helmet>
 
-      <AboutHero />
+      <About />
 
-      <BuyNowForm />
+      <What />
+
+      <Divider orientation="vertical" sx={{ my: 1, mx: 'auto', width: 2, height: 10 }} />
+
+      <MyGoal />
 
       <ContactUsForm />
 
-      <AboutWhat />
+      <BuyNowForm />
 
-      <AboutVision />
 
-      <Divider orientation="vertical" sx={{ my: 10, mx: 'auto', width: 2, height: 40 }} />
+      <AboutMe />
 
-      <AboutTeam />
-
-      <AboutTestimonials />
     </>
   );
 }
