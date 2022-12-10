@@ -16,11 +16,11 @@ export default function EBookSoftwareEngineerPage() {
 
       <What />
 
-      <Divider orientation="vertical" sx={{ my: 1, mx: 'auto', width: 2, height: 10 }} />
-
-      <MyGoal />
+      {/* <Divider orientation="vertical" sx={{ my: 1, mx: 'auto', width: 2, height: 10 }} /> */}
 
       <ContactUsForm />
+
+      <MyGoal />
 
       <BuyNowForm />
 

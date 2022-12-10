@@ -22,7 +22,7 @@ import Iconify from '../../../components/iconify';
 
 const StyledRoot = styled('div')(({ theme }) => ({
     textAlign: 'center',
-    paddingTop: theme.spacing(20),
+    paddingTop: theme.spacing(15),
     paddingBottom: theme.spacing(10),
     [theme.breakpoints.up('md')]: {
       textAlign: 'left',

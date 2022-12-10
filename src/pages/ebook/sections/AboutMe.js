@@ -15,8 +15,8 @@ import { MotionViewport, varFade } from '../../../components/animate';
 
 const StyledRoot = styled('div')(({ theme }) => ({
   textAlign: 'center',
-  paddingTop: theme.spacing(20),
-  paddingBottom: theme.spacing(10),
+  paddingTop: theme.spacing(8),
+  paddingBottom: theme.spacing(8),
   [theme.breakpoints.up('md')]: {
     textAlign: 'left',
   },
