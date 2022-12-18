@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useRef } from 'react';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Box, AppBar, Toolbar, Container } from '@mui/material';
+import { Typography, Box, AppBar, Toolbar, Container } from '@mui/material';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 import useResponsive from '../../hooks/useResponsive';
@@ -51,6 +51,8 @@ export default function Header() {
       >
         <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Logo />
+
+          <Typography sx={{ ml: 2 }}>Full Stack of Pancakes</Typography>
 
           <Box sx={{ flexGrow: 1 }} />
 

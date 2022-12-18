@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { useTheme } from '@mui/material/styles';
-import { Box, Link } from '@mui/material';
+import { Box, Link, Stack, Typography } from '@mui/material';
 import { PATH_PAGE } from '../../routes/paths';
 
 // ----------------------------------------------------------------------
@@ -28,19 +28,22 @@ const Logo = forwardRef(({ disabledLink = false, sx, ...other }, ref) => {
   // );
 
   const logo = (
-    <Box
-      ref={ref}
-      component="div"
-      sx={{
-        width: 60,
-        height: 40,
-        display: 'inline-flex',
-        ...sx,
-      }}
-      {...other}
-    >
-      <img src="/assets/images/umbrella-academy-logo.png" alt="logo" />
-    </Box>
+    <Stack direction="column">
+      <Box
+        ref={ref}
+        component="div"
+        sx={{
+          width: 60,
+          height: 40,
+          display: 'inline-flex',
+          ...sx,
+        }}
+        {...other}
+      >
+        <img src="/assets/images/pancakes-logo1.jpeg" alt="logo" />
+        {/* <Typography>Pancakes FullStack Engineer</Typography> */}
+      </Box>
+    </Stack>
   );
 
   if (disabledLink) {

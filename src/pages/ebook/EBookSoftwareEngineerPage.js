@@ -9,7 +9,7 @@ export default function EBookSoftwareEngineerPage() {
   return (
     <>
       <Helmet>
-        <title> About us | Minimal UI</title>
+        <title> Software Engineer eBook</title>
       </Helmet>
 
       <About />

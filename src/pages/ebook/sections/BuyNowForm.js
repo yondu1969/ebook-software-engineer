@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // @mui
 import { styled } from '@mui/material/styles';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
@@ -8,15 +9,12 @@ import {
   Container, 
   Typography, 
   Stack,
-  Switch,
   TextField,
   Divider
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 
 import { MotionViewport } from '../../../components/animate';
-import Label from '../../../components/label';
-import Iconify from '../../../components/iconify';
 
 // ----------------------------------------------------------------------
 
@@ -30,6 +28,9 @@ const StyledRoot = styled('div')(({ theme }) => ({
   }));
   
 export default function BuyNowForm() {
+  const [email, setEmail] = useState(null);
+  const [fullName, setFullName] = useState(null);
+
   const stripe = useStripe();
   const elements = useElements();
   const amount = "2.99"
@@ -67,9 +68,9 @@ export default function BuyNowForm() {
     const paymentResult = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: elements.getElement(CardElement),
-            receipt_email: '',
+            receipt_email: email,
             billing_details: {
-                name: 'New Customer',
+                name: fullName,
             },
         },
     });
@@ -97,10 +98,22 @@ export default function BuyNowForm() {
                         }),
                 }}
                 >
-                    <Stack spacing={3}>
-                        <Typography variant="h6">Payment Method</Typography>
+                    <Stack spacing={2}>
+                        <Typography variant="h6">eMail & Payment Method</Typography>
 
-                        <TextField fullWidth label="Name on card" />
+                        <TextField 
+                            fullWidth 
+                            label="eMail" 
+                            value={email}
+                            onChange={(event) => setEmail(event.target.value)}
+                        />
+
+                        <TextField 
+                            fullWidth 
+                            label="Name on card" 
+                            value={fullName}
+                            onChange={(event) => setFullName(event.target.value)}
+                        />
 
                         <CardElement options={CARD_ELEMENT_OPTIONS} />
 
@@ -119,12 +132,18 @@ export default function BuyNowForm() {
                         bgcolor: 'background.neutral',
                     }}
                 >
-                    <Typography variant="h6" sx={{ mb: 5 }}>
-                        Software Engineer eBook
+                    <Typography variant="h6" sx={{ mb: 1 }}>
+                        'Get Started on Being a Software Engineer' eBook
+                    </Typography>
+                    <Typography variant="subtitle1" sx={{ mb: 5 }}>
+                        (Limited Time Sale Price ! )
                     </Typography>
 
                     <Stack spacing={2.5}>
                         <Stack spacing={1} direction="row" justifyContent="flex-end">
+                            <Box component="span" sx={{ fontSize: 24, textDecoration: 'line-through red', mr: 0.5 }}>
+                                $8.99
+                            </Box>
                             <Typography variant="h5">$</Typography>
                             <Typography variant="h2">4.99</Typography>
                         </Stack>
@@ -133,7 +152,7 @@ export default function BuyNowForm() {
 
                     <Stack spacing={2} sx={{ mt: 2 }}>
                         <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-                            Upon receipt of payment, I will send you my eBook as a PDF.
+                            Upon receipt of payment, I will send you my eBook as a PDF to the eMail provided.
                         </Typography>
                     </Stack>
                 </Box>            

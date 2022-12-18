@@ -65,7 +65,7 @@ export default function AboutMe() {
                 </p>
 
                 <p>
-                Give my wide breadth of experiece, I will help you focus on the right thing depending on your
+                Given my wide breadth of experiece, I will help guide you on the right path depending on your
                 level of experience and your goals.                  
                 </p>
                 

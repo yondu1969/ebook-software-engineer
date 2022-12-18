@@ -11,7 +11,7 @@ const StyledRoot = styled('div')(({ theme }) => ({
   position: 'relative',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  backgroundImage: 'url(/assets/background/overlay_1.svg), url(/assets/images/about/hero.jpg)',
+  backgroundImage: 'url(/assets/background/overlay_1.svg), url(/assets/images/about/hero1.jpeg)',
   padding: theme.spacing(10, 0),
   [theme.breakpoints.up('md')]: {
     height: 560,
@@ -37,14 +37,14 @@ export default function About() {
       <Container component={MotionContainer}>
         <StyledContent>
           <TextAnimate
-            text="Start"
+            text="Get"
             sx={{
               color: 'primary.main',
             }}
             variants={varFade().inRight}
           />
           <TextAnimate
-            text="Here..."
+            text="Started..."
             sx={{
               padding: 1,
               color: 'primary.main',
